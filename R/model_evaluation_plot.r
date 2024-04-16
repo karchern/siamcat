@@ -27,8 +27,9 @@
 #' level of information and \code{3} for full debug information,
 #' defaults to \code{1}
 #'     
-#' @param point_coords a two element vector of the x and y coordinates for a point to be added
-#' typically TPR and FPR values that you want to reference
+#' @param point_coords a two element vector of the x and y coordinates
+#' corresponding to TPR and FPR values that you want to reference in the AUROC
+#' plot
 #' 
 #' @keywords SIAMCAT model.evaluation.plot
 #' 
