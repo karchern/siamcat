@@ -27,6 +27,9 @@
 #' level of information and \code{3} for full debug information,
 #' defaults to \code{1}
 #'     
+#' @param point_coords a two element vector of the x and y coordinates for a point to be added
+#' typically TPR and FPR values that you want to reference
+#' 
 #' @keywords SIAMCAT model.evaluation.plot
 #' 
 #' @section Binary classification problems:
@@ -63,7 +66,7 @@
 #' # show indiviudal cross-validation repeats
 #' model.evaluation.plot(siamcat_example, fn.plot='./eval.pdf', show.all=TRUE)
 model.evaluation.plot <- function(..., fn.plot=NULL, colours = NULL,
-        show.all = FALSE, verbose = 1) {
+        show.all = FALSE, verbose = 1, point_coords = NULL) {
     if (verbose > 1)
         message("+ starting model.evaluation.plot")
     s.time <- proc.time()[3]
@@ -132,6 +135,9 @@ model.evaluation.plot <- function(..., fn.plot=NULL, colours = NULL,
         # plot ROC(s)
         plot(NULL, xlim = c(0, 1), ylim = c(0, 1), xlab = "False positive rate",
             ylab = "True positive rate", type = "n")
+        if (!is.null(point_coords)) {
+            points(point_coords[1], point_coords[2], pch=19, col='red')
+        }
         title(paste("ROC curve for the model", sep = " "))
         abline(a = 0, b = 1, lty = 3)
         if (length(args) > 1){

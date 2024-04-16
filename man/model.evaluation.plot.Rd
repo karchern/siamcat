@@ -25,6 +25,9 @@ the mean across cross-valdiation repeats}
 for only information about progress and success, \code{2} for normal
 level of information and \code{3} for full debug information,
 defaults to \code{1}}
+
+\item{point_coords}{a two element vector of the x and y coordinates for a point to be added
+typically TPR and FPR values that you want to reference}
 }
 \value{
 Does not return anything, but produces the model evaluation plot.
